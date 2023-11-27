@@ -14,6 +14,8 @@
 		FE2765AC2B153E23008ED3AD /* TipsGotTrolledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2765AB2B153E23008ED3AD /* TipsGotTrolledTests.swift */; };
 		FE2765B62B153E23008ED3AD /* TipsGotTrolledUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2765B52B153E23008ED3AD /* TipsGotTrolledUITests.swift */; };
 		FE2765B82B153E23008ED3AD /* TipsGotTrolledUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2765B72B153E23008ED3AD /* TipsGotTrolledUITestsLaunchTests.swift */; };
+		FE98BECE2B154170009B6AAA /* AbsoluteSolver in Frameworks */ = {isa = PBXBuildFile; productRef = FE98BECD2B154170009B6AAA /* AbsoluteSolver */; };
+		FE98BED12B15418B009B6AAA /* GetTipsPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE98BED02B15418B009B6AAA /* GetTipsPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 		FE2765B12B153E23008ED3AD /* TipsGotTrolledUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipsGotTrolledUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2765B52B153E23008ED3AD /* TipsGotTrolledUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsGotTrolledUITests.swift; sourceTree = "<group>"; };
 		FE2765B72B153E23008ED3AD /* TipsGotTrolledUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsGotTrolledUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FE98BED02B15418B009B6AAA /* GetTipsPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTipsPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE98BECE2B154170009B6AAA /* AbsoluteSolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +98,7 @@
 		FE2765992B153E21008ED3AD /* TipsGotTrolled */ = {
 			isa = PBXGroup;
 			children = (
+				FE98BECF2B154179009B6AAA /* Functions */,
 				FE27659A2B153E21008ED3AD /* TipsGotTrolledApp.swift */,
 				FE27659C2B153E21008ED3AD /* ContentView.swift */,
 				FE27659E2B153E22008ED3AD /* Assets.xcassets */,
@@ -127,6 +132,14 @@
 			path = TipsGotTrolledUITests;
 			sourceTree = "<group>";
 		};
+		FE98BECF2B154179009B6AAA /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				FE98BED02B15418B009B6AAA /* GetTipsPath.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +156,9 @@
 			dependencies = (
 			);
 			name = TipsGotTrolled;
+			packageProductDependencies = (
+				FE98BECD2B154170009B6AAA /* AbsoluteSolver */,
+			);
 			productName = TipsGotTrolled;
 			productReference = FE2765972B153E21008ED3AD /* TipsGotTrolled.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +231,9 @@
 				Base,
 			);
 			mainGroup = FE27658E2B153E20008ED3AD;
+			packageReferences = (
+				FE98BECC2B154170009B6AAA /* XCRemoteSwiftPackageReference "AbsoluteSolver-iOS" */,
+			);
 			productRefGroup = FE2765982B153E21008ED3AD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE98BED12B15418B009B6AAA /* GetTipsPath.swift in Sources */,
 				FE27659D2B153E21008ED3AD /* ContentView.swift in Sources */,
 				FE27659B2B153E21008ED3AD /* TipsGotTrolledApp.swift in Sources */,
 			);
@@ -425,11 +445,13 @@
 				DEVELOPMENT_TEAM = HD373A4P3H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Needed to find the path to Tips.app executable.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,11 +476,13 @@
 				DEVELOPMENT_TEAM = HD373A4P3H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Needed to find the path to Tips.app executable.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -588,6 +612,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FE98BECC2B154170009B6AAA /* XCRemoteSwiftPackageReference "AbsoluteSolver-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BomberFish/AbsoluteSolver-iOS.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FE98BECD2B154170009B6AAA /* AbsoluteSolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE98BECC2B154170009B6AAA /* XCRemoteSwiftPackageReference "AbsoluteSolver-iOS" */;
+			productName = AbsoluteSolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FE27658F2B153E20008ED3AD /* Project object */;
 }
