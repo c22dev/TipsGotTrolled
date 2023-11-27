@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA3C25C92B154AA10054E0B5 /* PersistenceHelper_Embedded in Resources */ = {isa = PBXBuildFile; fileRef = FA3C25C82B154AA10054E0B5 /* PersistenceHelper_Embedded */; };
 		FE27659B2B153E21008ED3AD /* TipsGotTrolledApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE27659A2B153E21008ED3AD /* TipsGotTrolledApp.swift */; };
 		FE27659D2B153E21008ED3AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE27659C2B153E21008ED3AD /* ContentView.swift */; };
 		FE27659F2B153E22008ED3AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE27659E2B153E22008ED3AD /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA3C25C82B154AA10054E0B5 /* PersistenceHelper_Embedded */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = PersistenceHelper_Embedded; sourceTree = "<group>"; };
 		FE2765972B153E21008ED3AD /* TipsGotTrolled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipsGotTrolled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE27659A2B153E21008ED3AD /* TipsGotTrolledApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsGotTrolledApp.swift; sourceTree = "<group>"; };
 		FE27659C2B153E21008ED3AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA3C25C72B154A910054E0B5 /* Binary */ = {
+			isa = PBXGroup;
+			children = (
+				FA3C25C82B154AA10054E0B5 /* PersistenceHelper_Embedded */,
+			);
+			path = Binary;
+			sourceTree = "<group>";
+		};
 		FE27658E2B153E20008ED3AD = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +108,7 @@
 		FE2765992B153E21008ED3AD /* TipsGotTrolled */ = {
 			isa = PBXGroup;
 			children = (
+				FA3C25C72B154A910054E0B5 /* Binary */,
 				FE98BECF2B154179009B6AAA /* Functions */,
 				FE27659A2B153E21008ED3AD /* TipsGotTrolledApp.swift */,
 				FE27659C2B153E21008ED3AD /* ContentView.swift */,
@@ -252,6 +263,7 @@
 			files = (
 				FE2765A22B153E22008ED3AD /* Preview Assets.xcassets in Resources */,
 				FE27659F2B153E22008ED3AD /* Assets.xcassets in Resources */,
+				FA3C25C92B154AA10054E0B5 /* PersistenceHelper_Embedded in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
