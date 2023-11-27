@@ -1,6 +1,6 @@
 # TipsGotTrolled
 Well,well,well...
-iOS 16.0 (including betas) -> 16.1.2. Not higher. 16.2 and more go take a look at kfd
+iOS 16.0 (including betas) -> 16.1.2. Not higher. 16.2 and more go take a look at kfd (kfd support will be added later)
 
 This uses MacDirtyCow (our beloved), also known as [CVE-2022-46689](https://support.apple.com/en-us/HT213530). This vulnerability is also used by Cowabunga and Misaka.
 The app replaces your Tips.app with TrollStore Persistance Helper.
