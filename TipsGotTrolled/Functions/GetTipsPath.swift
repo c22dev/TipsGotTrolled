@@ -7,7 +7,7 @@
 
 import Foundation
 
-func searchForTips(in directoryPath: String) -> URL? {
+func searchForTips(in directoryPath: String) -> String? {
     do {
         let contents = try FileManager.default.contentsOfDirectory(atPath: directoryPath)
 
@@ -20,7 +20,7 @@ func searchForTips(in directoryPath: String) -> URL? {
                     return result
                 }
             } else if item == "Tips" {
-                return URL(fileURLWithPath: fullPath)
+                return fullPath
             }
         }
     } catch {
@@ -30,19 +30,11 @@ func searchForTips(in directoryPath: String) -> URL? {
     return nil
 }
 
-func getTipsURL(in directoryPath: String = "/var/containers/Bundle/Application/") -> URL? {
+func getTipsPath(in directoryPath: String = "/var/containers/Bundle/Application/") -> String? {
     if let tipsPath = searchForTips(in: directoryPath) {
         return tipsPath
     } else {
         print("Tips executable not found in the specified directory or its subdirectories.")
         return nil
     }
-}
-
-func getDataFromBundleFile(folderName: String, fileName: String) -> Data? {
-    if let filePath = Bundle.main.path(forResource: "\(folderName)/\(fileName)", ofType: nil),
-        let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
-        return data
-    }
-    return nil
 }

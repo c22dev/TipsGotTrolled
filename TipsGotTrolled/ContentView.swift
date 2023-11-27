@@ -7,33 +7,33 @@
 
 import SwiftUI
 import MacDirtyCow
-import AbsoluteSolver
+
 
 struct ContentView: View {
     @State private var installState = ""
+    @AppStorage("patched") var patched = false
     
     var body: some View {
         NavigationView {
             Form {
-                Button("Xploit") {
+                Button("Exploit") {
                     do {
                         try MacDirtyCow.unsandbox()
+                        
+                        patched.toggle()
                     } catch {
-                        print("errora")
+                        installState = "Error: \(error)"
                     }
                 }
                 Button("Change Tips") {
                     do {
-                        if let tipsURL = try getTipsURL(), let fileData = getDataFromBundleFile(folderName: "Binary", fileName: "PersistenceHelper_Embedded") {
-                            try AbsoluteSolver.replace(at: tipsURL, with: fileData as NSData)
-                            print("Replacement completed.")
-                        } else {
-                            print("Unable to perform replacement.")
-                        }
+                        try MacDirtyCow.overwriteFileWithDataImpl(originPath: getTipsPath()!, replacementData: Data(contentsOf: Bundle.main.url(forResource: "PersistenceHelper_Embedded", withExtension: "")!))
+                        
+                        installState = "Done"
                     } catch {
-                        print("Error: \(error)")
+                        installState = "Error: \(error)"
                     }
-                }
+                }.disabled(patched)
                 Text(installState)
             }
             .navigationBarTitle(Text("TipsGotTrolled"), displayMode: .inline)

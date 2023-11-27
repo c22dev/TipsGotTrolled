@@ -77,14 +77,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FA3C25C72B154A910054E0B5 /* Binary */ = {
-			isa = PBXGroup;
-			children = (
-				FA3C25C82B154AA10054E0B5 /* PersistenceHelper_Embedded */,
-			);
-			path = Binary;
-			sourceTree = "<group>";
-		};
 		FE27658E2B153E20008ED3AD = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +100,7 @@
 		FE2765992B153E21008ED3AD /* TipsGotTrolled */ = {
 			isa = PBXGroup;
 			children = (
-				FA3C25C72B154A910054E0B5 /* Binary */,
+				FA3C25C82B154AA10054E0B5 /* PersistenceHelper_Embedded */,
 				FE98BECF2B154179009B6AAA /* Functions */,
 				FE27659A2B153E21008ED3AD /* TipsGotTrolledApp.swift */,
 				FE27659C2B153E21008ED3AD /* ContentView.swift */,
