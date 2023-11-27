@@ -9,6 +9,8 @@ import SwiftUI
 import MacDirtyCow
 
 struct ContentView: View {
+    @State private var installState = ""
+    
     var body: some View {
         NavigationView {
             Form {
@@ -27,6 +29,7 @@ struct ContentView: View {
                         print("Tips executable not found in the specified directory or its subdirectories.")
                     }
                 }
+                Text(installState)
             }
             .navigationBarTitle(Text("TipsGotTrolled"), displayMode: .inline)
         }
