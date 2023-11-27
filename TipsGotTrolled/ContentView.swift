@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MacDirtyCow
+import AbsoluteSolver
 
 struct ContentView: View {
     @State private var installState = ""
@@ -21,12 +22,16 @@ struct ContentView: View {
                         print("errora")
                     }
                 }
-                Button("Troll Tips") {
-                    // Example usage
-                    if let tipsPath = getTipsPath() {
-                        print("Tips Executable Path: \(tipsPath)")
-                    } else {
-                        print("Tips executable not found in the specified directory or its subdirectories.")
+                Button("Change Tips") {
+                    do {
+                        if let tipsURL = try getTipsURL(), let fileData = getDataFromBundleFile(folderName: "Binary", fileName: "PersistenceHelper_Embedded") {
+                            try AbsoluteSolver.replace(at: tipsURL, with: fileData as NSData)
+                            print("Replacement completed.")
+                        } else {
+                            print("Unable to perform replacement.")
+                        }
+                    } catch {
+                        print("Error: \(error)")
                     }
                 }
                 Text(installState)
