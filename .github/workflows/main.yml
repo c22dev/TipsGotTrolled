@@ -1,0 +1,23 @@
+name: TipsGotTrolled preview
+
+on:
+  push:
+    branches: 
+      - '**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build TrollTools
+    runs-on: macos-12
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build IPA using Xcode
+        run:  ./ipabuild.sh
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: TipsGotTrolled.ipa
+          path: build/TipsGotTrolled.ipa
