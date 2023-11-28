@@ -2,6 +2,8 @@
 Well,well,well...
 iOS 15.4 (to 15.7.1) -> 16.1.2. Not higher. 16.2 and more go take a look at kfd (kfd support will be added later)
 
+The app installs [TrollStore (2)](https://github.com/opa334/TrollStore) on your device. 
+
 This uses MacDirtyCow (our beloved), also known as [CVE-2022-46689](https://support.apple.com/en-us/HT213530). This vulnerability is also used by Cowabunga and Misaka.
 The app replaces your Tips.app with TrollStore Persistance Helper.
 
