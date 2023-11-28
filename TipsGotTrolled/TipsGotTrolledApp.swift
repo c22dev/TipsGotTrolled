@@ -18,6 +18,13 @@ struct TipsGotTrolledApp: App {
                     UIApplication.shared.alert(title: "Please delete Tips app then (re)install it before proceeding", body: "Hi ! It looks like it's the first time you come here. To avoid any corruption, please delete Tips app from Home Screen then reinstall it. Thanks for using this tool!", withButton: true)
                     isFirstLaunch = false
                 }
+                if let url = Bundle.main.url(forResource: "PersistenceHelper_Embedded", withExtension: nil) {
+                    let filePath = url.path
+                    
+                    if FileManager.default.fileExists(atPath: filePath) {
+                        print("persistence binary found in bundle (good!)")
+                    }
+                }
             }
         }
     }

@@ -57,7 +57,7 @@ struct ContentView: View {
                                     UIApplication.shared.alert(title: "Error", body: "Error: \(error)")
                                 }
                             }
-                            
+
                             
                             try AbsoluteSolver.copy(at: URL(fileURLWithPath: ts.getTipsPath()!), to: documentsDirectoryURL!.appendingPathComponent("Tips")) // backup previous binary just in case
                             try MacDirtyCow.overwriteFileWithDataImpl(originPath: ts.getTipsPath()!, replacementData: Data(contentsOf: Bundle.main.url(forResource: "PersistenceHelper_Embedded", withExtension: "")!))
