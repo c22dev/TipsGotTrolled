@@ -14,5 +14,5 @@ This requires a restart. If you currently have MDC based tweaks running, please 
 What's different with the misaka thing ?
 - it's open source, and it has one purpose. if you dont like misaka for whatever reason this could be a great replacement.
 - it might work here but not on misaka (not sure of that)
-
-don't run this for now. thanks :)
+- it's smaller
+- it only has one unique purpose.
