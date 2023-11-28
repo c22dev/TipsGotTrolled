@@ -42,11 +42,11 @@ class TS {
             return nil
         }
     }
-    func getTipsDocs(in directoryPath: String = "/var/mobile/Containers/Data/Application") -> String? {
+    func getTipsDocs(in directoryPath: String = "/var/mobile/Containers/Data/Application/") -> String? {
         if let tipsPath = searchForTips(in: directoryPath) {
             return tipsPath
         } else {
-            UIApplication.shared.alert(title: "Error", body: "Tips executable not found in the specified directory or its subdirectories. Is the app installed?")
+            UIApplication.shared.alert(title: "Error", body: "Tips Docs not found in the specified directory or its subdirectories. Is the app installed?")
             return nil
         }
     }
@@ -54,16 +54,19 @@ class TS {
     func isiOSVersionInRange() -> Bool {
         let systemVersion = UIDevice.current.systemVersion
         let versionComponents = systemVersion.split(separator: ".").compactMap { Int($0) }
-        
+
         if versionComponents.count >= 2 {
             let majorVersion = versionComponents[0]
             let minorVersion = versionComponents[1]
-            
-            if majorVersion == 16 && minorVersion >= 0 && minorVersion <= 1 {
+
+            if majorVersion == 15 && minorVersion >= 5 && minorVersion <= 7 {
+                return true
+            } else if majorVersion == 16 && minorVersion >= 0 && minorVersion <= 1 {
                 return true
             }
         }
-        
+
         return false
     }
+
 }

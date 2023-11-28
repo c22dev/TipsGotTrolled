@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA3C25C92B154AA10054E0B5 /* PersistenceHelper_Embedded in Resources */ = {isa = PBXBuildFile; fileRef = FA3C25C82B154AA10054E0B5 /* PersistenceHelper_Embedded */; };
+		FA9657152B15D50300555D06 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9657142B15D50300555D06 /* Log.swift */; };
 		FE27659B2B153E21008ED3AD /* TipsGotTrolledApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE27659A2B153E21008ED3AD /* TipsGotTrolledApp.swift */; };
 		FE27659D2B153E21008ED3AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE27659C2B153E21008ED3AD /* ContentView.swift */; };
 		FE27659F2B153E22008ED3AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE27659E2B153E22008ED3AD /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		FA3C25C82B154AA10054E0B5 /* PersistenceHelper_Embedded */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = PersistenceHelper_Embedded; sourceTree = "<group>"; };
+		FA9657142B15D50300555D06 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		FE2765972B153E21008ED3AD /* TipsGotTrolled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipsGotTrolled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE27659A2B153E21008ED3AD /* TipsGotTrolledApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsGotTrolledApp.swift; sourceTree = "<group>"; };
 		FE27659C2B153E21008ED3AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				FE98BED02B15418B009B6AAA /* TS.swift */,
+				FA9657142B15D50300555D06 /* Log.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			files = (
 				FE98BED12B15418B009B6AAA /* TS.swift in Sources */,
 				FE27659D2B153E21008ED3AD /* ContentView.swift in Sources */,
+				FA9657152B15D50300555D06 /* Log.swift in Sources */,
 				FE27659B2B153E21008ED3AD /* TipsGotTrolledApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
