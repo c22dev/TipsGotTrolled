@@ -42,13 +42,32 @@ class TS {
             return nil
         }
     }
-    func getTipsDocs(in directoryPath: String = "/var/mobile/Containers/Data/Application/") -> String? {
-        if let tipsPath = searchForTips(in: directoryPath) {
-            return tipsPath
-        } else {
-            UIApplication.shared.alert(title: "Error", body: "Tips Docs not found in the specified directory or its subdirectories. Is the app installed?")
-            return nil
+    func getTipsDoc(in directory: URL) -> URL? {
+        let fileManager = FileManager.default
+
+        do {
+            let contents = try fileManager.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil, options: [])
+
+            for url in contents {
+                var isDirectory: ObjCBool = false
+                if fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory) {
+                    if isDirectory.boolValue {
+                        if url.lastPathComponent == "Tips" {
+                            print(url)
+                            return url
+                        } else {
+                            if let subdirectoryResult = getTipsDoc(in: url) {
+                                return subdirectoryResult
+                            }
+                        }
+                    }
+                }
+            }
+        } catch {
+            print("Error reading directory: \(error)")
         }
+
+        return nil
     }
     
     func isiOSVersionInRange() -> Bool {

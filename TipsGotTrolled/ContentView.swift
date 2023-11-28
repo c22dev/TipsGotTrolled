@@ -45,7 +45,7 @@ struct ContentView: View {
                     Button("Change Tips") {
                         do {
                             let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-                            let flagFilePath = "\(ts.getTipsDocs()!)/_trolled"
+                            let flagFilePath = "\(ts.getTipsDoc(in: URL(fileURLWithPath:"/var/mobile/Containers/Data/Application/"))!)/_trolled"
                             if FileManager.default.fileExists(atPath: flagFilePath) {
                                 UIApplication.shared.alert(title: "Please delete Tips app then reinstall it before proceeding", body: "⚠️ It looks like your Tips app have been tweaked. Please, delete it from Home Screen and reinstall it from the App Store. A reboot is recommended after reinstalling the Tips app.⚠️", withButton: false)
                                 return
