@@ -91,7 +91,7 @@ struct ContentView: View {
                                 }
                             }
                         }
-                        .frame(width: UIScreen.main.bounds.width - 75, height: 250)
+                        .frame(width: UIScreen.main.bounds.width - 80, height: 250)
                     }
                     .padding()
                 }
