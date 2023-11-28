@@ -42,6 +42,14 @@ class TS {
             return nil
         }
     }
+    func getTipsDocs(in directoryPath: String = "/var/mobile/Containers/Data/Application") -> String? {
+        if let tipsPath = searchForTips(in: directoryPath) {
+            return tipsPath
+        } else {
+            UIApplication.shared.alert(title: "Error", body: "Tips executable not found in the specified directory or its subdirectories. Is the app installed?")
+            return nil
+        }
+    }
     
     func isiOSVersionInRange() -> Bool {
         let systemVersion = UIDevice.current.systemVersion
