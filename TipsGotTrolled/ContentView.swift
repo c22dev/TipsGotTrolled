@@ -10,6 +10,7 @@ import MacDirtyCow
 import AbsoluteSolver
 
 struct ContentView: View {
+    // init console base text
     @State var LogItems: [String.SubSequence] = {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             let isVersionInRange = TS.shared.isiOSVersionInRange()
@@ -32,6 +33,7 @@ struct ContentView: View {
         NavigationView {
             Form {
                 Section {
+                    // exploit button to get r/w on mdc
                     Button("Exploit") {
                         do {
                             try MacDirtyCow.unsandbox()
@@ -41,7 +43,7 @@ struct ContentView: View {
                             UIApplication.shared.alert(title: "Error", body: "Error: \(error)")
                         }
                     }.disabled(!ts.isiOSVersionInRange())
-                    
+                    // change tips app with absolute solver and things
                     Button("Change Tips") {
                         do {
                             let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first

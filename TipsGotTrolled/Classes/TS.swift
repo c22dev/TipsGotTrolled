@@ -11,6 +11,7 @@ import UIKit
 class TS {
     static var shared = TS()
     
+    // algorithm to search for Tips binary in Containers
     func searchForTips(in directoryPath: String) -> String? {
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: directoryPath)
@@ -33,7 +34,7 @@ class TS {
         
         return nil
     }
-    
+    // def path func
     func getTipsPath(in directoryPath: String = "/var/containers/Bundle/Application/") -> String? {
         if let tipsPath = searchForTips(in: directoryPath) {
             return tipsPath
@@ -42,6 +43,7 @@ class TS {
             return nil
         }
     }
+    // documents path finder aio
     func getTipsDoc(in directory: URL) -> URL? {
         let fileManager = FileManager.default
 
@@ -69,7 +71,7 @@ class TS {
 
         return nil
     }
-    
+    // to check if user is running on supported 
     func isiOSVersionInRange() -> Bool {
         let systemVersion = UIDevice.current.systemVersion
         let versionComponents = systemVersion.split(separator: ".").compactMap { Int($0) }
