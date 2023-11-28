@@ -21,12 +21,12 @@ struct ContentView: View {
                     Button("Exploit") {
                         do {
                             try MacDirtyCow.unsandbox()
-                            
                             exploited = true
+                            UIApplication.shared.alert(title: "Exploit", body: "Exploit run success! Now we got r/w permission")
                         } catch {
                             UIApplication.shared.alert(title: "Error", body: "Error: \(error)")
                         }
-                    }.disabled(!ts.isiOSVersionInRange())
+                    }.disabled(!ts.isiOSVersionInRange() || exploited)
                         .disabled(patched)
                     
                     Button("Change Tips") {

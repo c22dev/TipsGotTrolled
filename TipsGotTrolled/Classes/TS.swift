@@ -14,23 +14,17 @@ class TS {
     func searchForTips(in directoryPath: String) -> String? {
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: directoryPath)
-            
             for item in contents {
-                let fullPath = (directoryPath as NSString).appendingPathComponent(item)
-                
-                var isDirectory: ObjCBool = false
-                if FileManager.default.fileExists(atPath: fullPath, isDirectory: &isDirectory), isDirectory.boolValue {
-                    if let result = searchForTips(in: fullPath) {
-                        return result
-                    }
-                } else if item == "Tips" {
+                let tipsBinaryPath = "Tips.app/Tips"
+                let fullPath = ((directoryPath as NSString).appendingPathComponent(item) as NSString).appendingPathComponent(tipsBinaryPath)
+                if FileManager.default.fileExists(atPath: fullPath, isDirectory:nil) {
                     return fullPath
                 }
             }
+            return nil
         } catch {
             UIApplication.shared.alert(title: "Error", body: "Error: \(error)")
         }
-        
         return nil
     }
     
