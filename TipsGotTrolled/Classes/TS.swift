@@ -43,35 +43,7 @@ class TS {
             return nil
         }
     }
-    // documents path finder aio
-    func getTipsDoc(in directory: URL) -> URL? {
-        let fileManager = FileManager.default
-
-        do {
-            let contents = try fileManager.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil, options: [])
-
-            for url in contents {
-                var isDirectory: ObjCBool = false
-                if fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory) {
-                    if isDirectory.boolValue {
-                        if url.lastPathComponent == "Tips" {
-                            print(url)
-                            return url
-                        } else {
-                            if let subdirectoryResult = getTipsDoc(in: url) {
-                                return subdirectoryResult
-                            }
-                        }
-                    }
-                }
-            }
-        } catch {
-            print("Error reading directory: \(error)")
-        }
-
-        return nil
-    }
-    // to check if user is running on supported 
+    // to check if user is running on supported
     func isiOSVersionInRange() -> Bool {
         let systemVersion = UIDevice.current.systemVersion
         let versionComponents = systemVersion.split(separator: ".").compactMap { Int($0) }

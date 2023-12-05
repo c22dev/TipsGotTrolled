@@ -10,13 +10,14 @@ import SwiftUI
 @main
 struct TipsGotTrolledApp: App {
     @AppStorage("isFirstLaunch") var isFirstLaunch: Bool = true
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
             // when content view is loaded let's say user to delete Tips
             .onAppear {
                 if isFirstLaunch == true {
-                    UIApplication.shared.alert(title: "Please delete Tips app then (re)install it before proceeding", body: "Hi ! It looks like it's the first time you come here. To avoid any corruption, please delete Tips app from Home Screen then reinstall it. Thanks for using this tool!", withButton: true)
+                    UIApplication.shared.alert(title: "Please delete Tips app then (re)install it before proceeding!", body: "Hello! It looks like it's the first time you come here. To avoid any corruption, please delete Tips app from Home Screen then reinstall it. Thanks for using this tool!", withButton: true)
                     isFirstLaunch = false
                 }
                 // is persistance in bundle ?

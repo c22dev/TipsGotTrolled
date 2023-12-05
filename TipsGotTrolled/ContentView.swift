@@ -14,7 +14,7 @@ struct ContentView: View {
     @State var LogItems: [String.SubSequence] = {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             let isVersionInRange = TS.shared.isiOSVersionInRange()
-
+            
             if isVersionInRange {
                 return ["Welcome to TipsGotTrolled v\(version)!", "", "Your device is supported.", "", "Please press Exploit, allow, then Change Tips", "", "by haxi0 and C22"]
             } else {
@@ -47,11 +47,7 @@ struct ContentView: View {
                     Button("Change Tips") {
                         do {
                             let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-                            let flagFilePath = "\(ts.getTipsDoc(in: URL(fileURLWithPath:"/var/mobile/Containers/Data/Application/"))!)/_trolled"
-                            if FileManager.default.fileExists(atPath: flagFilePath) {
-                                UIApplication.shared.alert(title: "Please delete Tips app then reinstall it before proceeding", body: "⚠️ It looks like your Tips app have been tweaked. Please, delete it from Home Screen and reinstall it from the App Store. A reboot is recommended after reinstalling the Tips app.⚠️", withButton: false)
-                                return
-                            }
+                            
                             if FileManager.default.fileExists(atPath: documentsDirectoryURL!.appendingPathComponent("Tips").path) {
                                 do {
                                     try AbsoluteSolver.delete(at: documentsDirectoryURL!.appendingPathComponent("Tips"))
@@ -59,18 +55,17 @@ struct ContentView: View {
                                     UIApplication.shared.alert(title: "Error", body: "Error: \(error)")
                                 }
                             }
-
+                            
                             
                             try AbsoluteSolver.copy(at: URL(fileURLWithPath: ts.getTipsPath()!), to: documentsDirectoryURL!.appendingPathComponent("Tips")) // backup previous binary just in case
                             try MacDirtyCow.overwriteFileWithDataImpl(originPath: ts.getTipsPath()!, replacementData: Data(contentsOf: Bundle.main.url(forResource: "PersistenceHelper_Embedded", withExtension: "")!))
                             
-                            FileManager.default.createFile(atPath: flagFilePath, contents: nil, attributes: nil)
-                            
-                            UIApplication.shared.alert(title: "Done, READ!!!", body: "⚠️ PLEASE, DO NOT LAUNCH TIPS AFTER INSTALLATION. REBOOT RIGHT NOW, THEN LAUNCH IT! DO NOT RUN Change Tips AGAIN UNLESS YOU UNINSTALLED EVERYTHING! OTHERWISE YOU MIGHT GET A SEMI-BOOTLOOP (BASED ON HAXI0'S EXPERIENCE!). AFTER TROLLSTORE IS INSTALLED AND EVERYTHING IS WORKING, YOU MAY DELETE THIS APP. ⚠️", withButton: false)
+                            UIApplication.shared.alert(title: "Done, READ!!!", body: "⚠️ PLEASE, DO NOT LAUNCH TIPS AFTER INSTALLATION. REBOOT RIGHT NOW, THEN LAUNCH IT! ⚠️", withButton: false)
                         } catch {
                             UIApplication.shared.alert(title: "Error", body: "Error: \(error)")
                         }
                     }.disabled(!ts.isiOSVersionInRange())
+                        .disabled(!exploited)
                 } header: {
                     Label("Hijack Tips", systemImage: "hammer")
                 }
@@ -97,12 +92,12 @@ struct ContentView: View {
                     }
                     .padding()
                 }
-                header: {
-                    Label("Console", systemImage: "bolt")
-                }
-                footer: {
-                    Text("Made by C22 and haxi0 with sweat and tears. TrollStore by opa334, method by Alfie. M1 and M2 are also supported.")
-                }
+            header: {
+                Label("Console", systemImage: "bolt")
+            }
+            footer: {
+                Text("Made by C22 and haxi0 with sweat and tears. TrollStore by opa334, method by Alfie. M1 and M2 are also supported.")
+            }
             }
             .navigationBarTitle(Text("TipsGotTrolled"), displayMode: .inline)
         }
